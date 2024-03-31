@@ -1,0 +1,22 @@
+<section class="vh-100 d-flex justify-content-center align-items-center" *ngIf="isLoading">
+    <mat-spinner *ngIf="true"></mat-spinner>
+</section>
+
+<div class="col-md-12 ">
+  <div class="info row align-items-center justify-content-center">
+    <div class="image col-lg-6">
+        <img src="{{userInfo.avatar}}" class="w-75" alt="Image Of User">
+        </div>
+        <div class="col-lg-6">
+            
+            <h2>id : {{userInfo.id}}</h2>
+            <h2 class="h5">Name : {{userInfo.first_name}} {{userInfo.last_name}}</h2>
+            <h2 class="h6">Email :{{userInfo.email}}</h2>
+
+
+        </div>
+    </div>
+
+    <button class="form-control my-4 btn btn-danger" routerLink="/home">Back </button>
+</div>
+

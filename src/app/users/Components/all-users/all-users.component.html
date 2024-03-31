@@ -1,0 +1,43 @@
+
+<section class="vh-100 d-flex justify-content-center align-items-center " *ngIf="isLoading">
+    <mat-spinner ></mat-spinner>
+  </section>
+
+<div class="row gx-3 gy-3">
+
+<input type="text" class="form-control my-4" placeholder="Search By Id..." [(ngModel)]="searchValue">
+
+
+    <div class="col-md-6 col-lg-4" *ngFor="let user of Users|search:searchValue">
+        <a [routerLink]="['/detailsOfUser',user.id]">
+      <div class="info row align-items-center justify-content-center">
+        <div class="image col-lg-4">
+            <img src="{{user.avatar}}" alt="Image Of User">
+            </div>
+            <div class="col-lg-8">
+                <h2>id : {{user.id}}</h2>
+                <h2 class="h5">{{user.first_name}} {{user.last_name}}</h2>
+                <h2 class="h6">{{user.email}}</h2>
+    
+    
+            </div>
+        </div>
+    </a>
+    </div>
+
+    <div class="col-12 alert alert-danger text-center my-5" *ngIf="Users.length ==0" >
+        There Are Not Users To Show.
+    </div>
+</div>
+<nav aria-label="Page navigation example" class="my-5 justify-content-center d-flex">
+    <ul class="pagination d-flex ">
+      <li class="page-item" *ngFor="let number of totalPageNumbers ; let i = index" (click)="AllUsers(i+1)">
+        <a class="page-link" >{{i + 1}}</a>
+    </li>
+    </ul>
+  </nav>
+
+
+
+
+
